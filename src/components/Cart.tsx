@@ -70,6 +70,7 @@ export const Cart = () => {
             <>
               <h3>Total:</h3>
               <span className="total-pagar">${totalPrice}</span>
+              <button className="btn-pagar">Pay</button>
             </>
           )}
         </div>

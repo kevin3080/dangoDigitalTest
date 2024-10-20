@@ -1,15 +1,12 @@
 import { useState } from "react";
 import { useCart } from "../hooks/useCart";
+import { Product } from "../data/ProductList";
 
-interface CardProps {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  img: string;
+interface CardProps extends Product {
+  startEditProduct: (product: Product) => void
 }
 
-export const Card = ({ id, title, price, description, img }: CardProps) => {
+export const Card = ({ id, title, price, description, img, startEditProduct }: CardProps) => {
   const { addToCart} = useCart();
   const [amount, setAmount] = useState(1);
 
@@ -18,6 +15,7 @@ export const Card = ({ id, title, price, description, img }: CardProps) => {
   }
   return (
     <div className="card">
+      <button className="btn-edit" onClick={() => startEditProduct({ id, title, price, description, img })}>Edit</button>
       <img src={img} alt={title} />
       <div className="description">
         <h3>{title}</h3>

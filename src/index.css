@@ -10,50 +10,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-
-
-
-  .title-container span{
-    color: #03eeff;
-    display: block;
-  }
-
-  .list > .card{
-      background-color: rgba(176, 227, 243, 0.432);
-      backdrop-filter: blur(10px); 
-      -webkit-backdrop-filter: blur(10px); 
-      border-radius: 15px;
-      padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .list .card img{
-      background: transparent;
-    }
-
-    .list .card .counter-section > button {
-        background-color: #46cce7;
-      
-    }
-
-    .list > div .buttons > button{
-      background-color: #46cce7;
-
-      &:hover{
-        transition: all .2s ease;
-      }
-    }
-
-    .list > div .buttons > a{
-      color: white;
-      &:hover{
-        color: #46cce7;
-        transition: all .1s ease-in-out;
-      }
-    }
-
 }
 
 
@@ -63,51 +19,91 @@
     color: #213547;
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    
+  }
 
-    .title-container span{
-      color: #fc5000;
-      display: block;
-    }
-    
-    .list > .card{
-      background-color: rgba(243, 197, 176, 0.438);
-      backdrop-filter: blur(10px); 
-      -webkit-backdrop-filter: blur(10px); 
-      border-radius: 15px;
-      padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+  .title-container{
+    background-color: rgba(243, 197, 176, 0.438);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border-radius: 15px;
+    padding: 20px;
+    width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-    .list .card img{
-      background: transparent;
-    }
+  }
 
-    .counter-section{
-      > div button {
-        background-color: #e77946;
+  h1 span{
+    color: #e77946;
+  }
 
+  
+  .list > .card{
+    background-color: rgba(243, 197, 176, 0.438);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 
-        &:hover{
-          transition: all .2s ease;
-          color: white;
-        }
-      }
-    }
+  .list .card img{
+    background: transparent;
+  }
 
-    .list > div .buttons > button{
+  .counter-section{
+    > button {
       background-color: #e77946;
+
+
       &:hover{
         transition: all .2s ease;
         color: white;
       }
     }
+  }
 
-    .list > div .buttons > a{
-      &:hover{
-        color: #e77946;
-      }
+  .list  div .buttons button{
+    background-color: #e77946;
+    &:hover{
+      transition: all .2s ease;
+      color: white;
     }
+  }
+
+  .list > div .buttons > a{
+    &:hover{
+      color: #e77946;
+    }
+  }
+
+  .list .card .btn-edit{
+    background-color: #e77946;
+    &:hover{
+      color: white;
+    }
+  }
+
+  .count-products{
+    background-color: #e77946;
+  }
+
+  .modal-content{
+    color: white;
+    background-color: rgba(243, 197, 176, 0.438);
+    backdrop-filter: blur(40px); 
+  }
+
+  .modal-content button{
+    background-color: #e77946;
+  }
+
+  .modal-content button:last-child {
+    background-color: rgb(129, 129, 129);
+  }
+
+  .btnAddProduct{
+    background-color: #e77946;
   }
 }
