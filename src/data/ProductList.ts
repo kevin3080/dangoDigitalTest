@@ -15,35 +15,35 @@ export const ProductList = () => {
       title: 'Camisa básica',
       price: 12,
       description: 'Camisa cómoda y ligera para el día a día.',
-      img: '../../public/camisa.png',
+      img: '/camisa.png',
     },
     {
       id: 2,
       title: 'Camisa estampada',
       price: 18,
       description: 'Camisa estampada con un diseño moderno.',
-      img: '../../public/camisa.png',
+      img: '/camisa.png',
     },
     {
       id: 3,
       title: 'Camisa de algodón',
       price: 22,
       description: 'Camisa de algodón de algodón.',
-      img: '../../public/camisa.png',
+      img: '/camisa.png',
     },
     {
       id: 4,
       title: 'Camisa de manga corta',
       price: 14,
       description: 'Camisa de manga corta de manga corta.',
-      img: '../../public/camisa.png',
+      img: '/camisa.png',
     },
     {
       id: 5,
       title: 'Camisa de manga larga',
       price: 16,
       description: 'Camisa de manga larga de manga larga.',
-      img: '../../public/camisa.png',
+      img: '/camisa.png',
     },
   ]);
 
@@ -53,7 +53,7 @@ export const ProductList = () => {
     title: '',
     price: 1,
     description: '',
-    img: '../../public/camisa.png',
+    img: '/camisa.png',
   });
 
   const [editProduct, setEditProduct] = useState<Product | null>(null);
@@ -98,7 +98,7 @@ export const ProductList = () => {
       title: '',
       price: 1,
       description: '',
-      img: '../../public/camisa.png',
+      img: '/camisa.png',
     }); // Reset new product form
     setShowModal(false);
   };
