@@ -203,7 +203,7 @@ h1 span{
     right: 30px;
     background-color: rgba(255, 255, 255, 0.664);
     backdrop-filter: blur(10px);
-    width: 350px;
+    width: 300px;
     max-height: 500px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
     border-radius: 10px;
@@ -398,6 +398,9 @@ h1 span{
 
 
 @media (min-width: 768px) {
+  .container-cart-products{
+    width: 400px;
+  }
   .modal-content {
     width: 32rem;
   }
