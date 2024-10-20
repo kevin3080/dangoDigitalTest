@@ -14,13 +14,10 @@ export const MainProducts = () => {
     startEditProduct,
     saveEditProduct,
     setEditProduct,
+    handleEditChange,
   } = ProductList();
-  const handleEditChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    if (editProduct) {
-      setEditProduct({ ...editProduct, [name]: value });
-    }
-  };
+
+  
   return (
     <>
       <ModalProducts

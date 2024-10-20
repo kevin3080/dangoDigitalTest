@@ -58,29 +58,79 @@ export const ProductList = () => {
 
   const [editProduct, setEditProduct] = useState<Product | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleProductChange = (id: number, updatedProduct: Product) => {
+    setProducts(products.map(product =>
+      product.id === id ? updatedProduct : product
+    ));
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setNewProduct({
       ...newProduct,
-      [name]: value, // Actualiza la propiedad correspondiente
+      [name]: value, 
     });
   };
 
+  
+  const handleEditChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+
+    if (editProduct) {
+      const updatedProduct = {
+        ...editProduct,
+        [name]: value,
+      };
+
+      setEditProduct(updatedProduct);
+
+      setProducts(products.map(product =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      ));
+    }
+  };
   const addNewProduct = () => {
-    setProducts([...products, newProduct]);
+    setProducts([...products, { ...newProduct, id: products.length + 1 }]);
+    setNewProduct({
+      id: 0,
+      title: '',
+      price: 1,
+      description: '',
+      img: '../../public/camisa.png',
+    }); // Reset new product form
     setShowModal(false);
   };
-
+  
   const startEditProduct = (product: Product) => {
     setEditProduct(product);
+    setShowModal(true); 
   };
 
-  const saveEditProduct = (updatedProduct: Product) => {
-    setProducts(products.map(product => 
-      product.id === updatedProduct.id ? updatedProduct : product
-    ));
-    setEditProduct(null); // Resetea el estado de edición
+  const saveEditProduct = () => {
+    if (editProduct) {
+      setProducts(products.map(product =>
+        product.id === editProduct.id ? editProduct : product
+      ));
+      setEditProduct(null);
+      setShowModal(false);
+    }
   };
 
-  return { products, showModal, newProduct, editProduct, addNewProduct,  setShowModal,  setNewProduct, handleChange, startEditProduct, saveEditProduct, setEditProduct };
+  return {
+    products,
+    showModal,
+    newProduct,
+    editProduct,
+    addNewProduct,
+    setShowModal,
+    setNewProduct,
+    handleChange,
+    handleProductChange,
+    startEditProduct,
+    saveEditProduct,
+    setEditProduct,
+    handleEditChange,
+  };
 };

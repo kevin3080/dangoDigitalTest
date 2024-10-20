@@ -27,6 +27,11 @@ export const ModalProducts = ({
   handleEditChange,
   saveEditProduct,
 }: ModalProductsProps) => {
+
+  const cancelEdit = () => {
+    setEditProduct(null);
+    setShowModal(false);
+  }
   return (
     <div>
       <button className="btnAddProduct" onClick={() => setShowModal(true)}>
@@ -108,7 +113,7 @@ export const ModalProducts = ({
             <button onClick={() => saveEditProduct(editProduct)}>
               Guardar Cambios
             </button>
-            <button onClick={() => setEditProduct(null)}>Cancelar</button>
+            <button onClick={() => cancelEdit()}>Cancelar</button>
           </div>
         </div>
       )}
