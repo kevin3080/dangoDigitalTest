@@ -347,16 +347,30 @@ h1 span{
   text-align: start;
 }
 
-
 .modal-content input,
 .modal-content textarea {
   background-color: white;
   padding: 8px;
   margin-top: 5px;
   margin-bottom: 15px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 5px;
   color: black;
+  transition: border-color 0.3s ease-in-out;
+  outline: none;
+}
+
+.modal-content .form .input-error {
+  border: 1px solid red;
+}
+
+.modal-content .form .input-error:focus {
+  border: 1px solid red;
+}
+
+.modal-content .form .message-error {
+  color: rgb(255, 208, 0);
+  margin-top: -10px;
 }
 
 .modal-content input[name="price"],
@@ -386,19 +400,34 @@ h1 span{
   max-height: 150px;
 }
 
+.modal-content .form .modal-buttons {
+  grid-column: span 2;
+  gap: 20px;
+}
+
 .modal-content button {
   background-color: #46cce7;
-  margin-top: 10px;
+  margin: 10px 20px;
   padding: 10px;
   color: white;
   border: none;
   cursor: pointer;
-  width: 50%;
+  width: 40%;
   border-radius: 5px;
+  transition: .1s ease-in-out;
+
+  &:hover{
+    transform: scale(1.1);
+    background-color: #11d0f7;
+  }
 }
 
 .modal-content button:last-child {
   background-color: rgb(129, 129, 129);
+
+  &:hover{
+    background-color: rgb(112, 111, 111);;
+  }
 }
 
 

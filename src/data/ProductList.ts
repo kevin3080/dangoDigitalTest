@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 export interface Product {
   id: number;
@@ -48,72 +49,52 @@ export const ProductList = () => {
   ]);
 
   const [showModal, setShowModal] = useState(false);
-  const [newProduct, setNewProduct] = useState<Product>({
-    id: 0,
-    title: '',
-    price: 1,
-    description: '',
-    img: '/camisa.png',
-  });
-
   const [editProduct, setEditProduct] = useState<Product | null>(null);
 
-  const handleProductChange = (id: number, updatedProduct: Product) => {
-    setProducts(products.map(product =>
-      product.id === id ? updatedProduct : product
-    ));
+  const {
+    reset,
+    setValue,
+    handleSubmit, 
+    register, 
+    formState: { errors }
+  } = useForm<Product>({
+    defaultValues:{
+      title: '',
+      price: 0,
+      description: '',
+      img: '/camisa.png',
+    }
+  });
+
+  const addNewProduct: SubmitHandler<Product> = (data) => {
+    setProducts([...products, { ...data, id: products.length + 1 }]);
+    reset(); // Reinicia el formulario
+    setShowModal(false); 
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setNewProduct({
-      ...newProduct,
-      [name]: value, 
-    });
+  const startEditProduct = (product: Product) => {
+    setEditProduct(product);
+    setShowModal(true);
+
+    setValue('title', product.title);
+    setValue('price', product.price);
+    setValue('description', product.description);
+    setValue('img', product.img);
   };
 
-  
-  const handleEditChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-
+  const saveEditProduct: SubmitHandler<Product> = (data) => {
     if (editProduct) {
       const updatedProduct = {
         ...editProduct,
-        [name]: value,
-      };
-
-      setEditProduct(updatedProduct);
-
-      setProducts(products.map(product =>
-        product.id === updatedProduct.id ? updatedProduct : product
-      ));
-    }
-  };
-  const addNewProduct = () => {
-    setProducts([...products, { ...newProduct, id: products.length + 1 }]);
-    setNewProduct({
-      id: 0,
-      title: '',
-      price: 1,
-      description: '',
-      img: '/camisa.png',
-    }); // Reset new product form
-    setShowModal(false);
-  };
-  
-  const startEditProduct = (product: Product) => {
-    setEditProduct(product);
-    setShowModal(true); 
-  };
-
-  const saveEditProduct = () => {
-    if (editProduct) {
-      setProducts(products.map(product =>
-        product.id === editProduct.id ? editProduct : product
-      ));
+        ...data,
+      }
+      setProducts(
+        products.map((product) =>
+          product.id === updatedProduct.id ? updatedProduct : product
+        )
+      );
       setEditProduct(null);
+      reset();
       setShowModal(false);
     }
   };
@@ -121,16 +102,15 @@ export const ProductList = () => {
   return {
     products,
     showModal,
-    newProduct,
     editProduct,
     addNewProduct,
     setShowModal,
-    setNewProduct,
-    handleChange,
-    handleProductChange,
     startEditProduct,
     saveEditProduct,
     setEditProduct,
-    handleEditChange,
+    handleSubmit, 
+    register, 
+    formState: { errors },
+    reset
   };
 };

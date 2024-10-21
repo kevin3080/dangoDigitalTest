@@ -6,29 +6,31 @@ export const MainProducts = () => {
   const {
     products,
     addNewProduct,
-    newProduct,
-    handleChange,
     showModal,
     editProduct,
     setShowModal,
     startEditProduct,
     saveEditProduct,
     setEditProduct,
-    handleEditChange,
+    handleSubmit, 
+    register, 
+    formState,
+    reset
   } = ProductList();
 
   
   return (
     <>
       <ModalProducts
-        newProduct={newProduct}
-        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        register={register}
+        formState={formState}
+        reset={reset}
         addNewProduct={addNewProduct}
         showModal={showModal}
         setShowModal={setShowModal}
         editProduct={editProduct}
         setEditProduct={setEditProduct}
-        handleEditChange={handleEditChange}
         saveEditProduct={saveEditProduct}
       />
 
