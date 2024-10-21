@@ -280,6 +280,11 @@ h1 span{
   border-radius: 5px;
   cursor: pointer;
   transition: .1s ease-in-out;
+
+  &:hover{
+    transform: scale(1.1);
+    color: #fff;
+  }
 }
 
 .hidden-cart{
